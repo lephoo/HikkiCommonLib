@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>HikkiARCLib.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>HikkiCommonLib.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>HikkiFramework copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>HikkiFramework.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3A1918231D0BEA22000F6ACF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3AD24F7C1D09BA6F008F7A0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3AD24F851D09BCC2008F7A0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B84BFD7D1BDF63A90095C8E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
