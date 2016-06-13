@@ -56,6 +56,20 @@
     }
 }
 
+//iOS 6+
+-(NSString*)getUUID{
+    return [[NSUUID UUID]UUIDString];
+}
+
+-(NSString*)getIDFAIdentifier{
+    //[[[ASIdentifierManager sharedManager]advertisingIdentifer]UUIDString];
+    return nil;
+}
+
+-(NSString*)getVenderIdentifier{
+    return [[[UIDevice currentDevice]identifierForVendor]UUIDString];
+}
+
 -(void)redirectNSLogToDocumentFolder:(NSString*) docName{
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     //NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSAllDomainsMask, YES);
