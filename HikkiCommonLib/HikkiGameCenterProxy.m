@@ -67,6 +67,27 @@
     KLog(@"[GameCenter] gameCenterViewControllerDidFinish");
 }
 
+-(void)showGameCenter{
+    GKGameCenterViewController* gvc = [[GKGameCenterViewController alloc]init];
+    if(gvc != nil){
+       // gvc.gameCenterDelegate = self;
+        //gvc.viewState = GKGameCenterViewControllerStateDefault;
+        //[[self getTopVC] presentViewController:gvc animated:YES completion:nil];
+    }
+}
+
+-(void)showAuthenticationDialogWhenReasonable{
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"gamecenter:1116904144"]];
+    /*[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:id350536422"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:us/app/cheese-moon/id350536422"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:games/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:350536422"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:/me/account"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:/me/signout"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:/friends/recommendations"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:/games/recommendations"]];*/
+}
+
 void KLog(NSString* log, ...){
     va_list args;
     va_start(args, log);
