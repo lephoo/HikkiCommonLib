@@ -31,7 +31,11 @@
          //[self presentViewController:viewController animated:YES completion:nil];
         }else{
             if([GKLocalPlayer localPlayer].authenticated){
-            
+                
+#ifdef HIKKI_DEBUG
+                [self postVerifyIdentity];
+#endif
+                
                 KLog(@"[GameCenter] authenticateHandler authenticated");
                 NSString* pid = [[GKLocalPlayer localPlayer]playerID];
             
@@ -47,6 +51,45 @@
             }
         }
     };
+}
+
+-(void)postVerifyIdentity{
+    
+    [[GKLocalPlayer localPlayer]generateIdentityVerificationSignatureWithCompletionHandler:^(NSURL * _Nullable publicKeyUrl, NSData * _Nullable signature, NSData * _Nullable salt, uint64_t timestamp, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"generateIdentityVerification:%@", [error localizedDescription]);
+        }else{
+            NSDictionary* params = @{
+                                     @"public_key_url":[publicKeyUrl absoluteString],
+                                     @"timestamp":[NSString stringWithFormat:@"%llu", timestamp],
+                                     @"signature":[signature base64EncodedDataWithOptions:0],
+                                     @"salt":[salt base64EncodedDataWithOptions:0],
+                                     @"player_id":[GKLocalPlayer localPlayer].playerID,
+                                     @"app_bundle_id":[[NSBundle mainBundle]bundleIdentifier]
+                                     };
+            
+            NSError* jsonErr = nil;
+            NSData* jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&jsonErr];
+            NSString* loginUrl = @"";
+            NSMutableURLRequest* postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:loginUrl]];
+            [postRequest setHTTPBody:jsonData];
+            [postRequest setHTTPMethod:@"POST"];
+            NSOperationQueue* queue = [[NSOperationQueue alloc]init];
+            [NSURLConnection sendAsynchronousRequest:postRequest queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+                
+                if(connectionError){
+                    NSLog(@"GameCenter verify post err:%@", [connectionError localizedDescription]);
+                    
+                }else{
+                    
+                    NSInteger resCode = [(NSHTTPURLResponse*)response statusCode];
+                    NSString* resStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                    NSLog(@"responseCode:%zd", resCode);
+                    NSLog(@"responseStr:%@", resStr);
+                }
+            }];
+        }
+    }];
 }
 
 -(void)registerForAuthenticationNotification{

@@ -150,6 +150,20 @@
     app.applicationIconBadgeNumber = 0;
 }
 
+-(void)describeDictionary:(NSDictionary*) dict{
+    NSArray* keys;
+    NSInteger i, count;
+    id key, value;
+    
+    keys = [dict allKeys];
+    count = [keys count];
+    for (i=0; i<count; i++) {
+        key = [keys objectAtIndex:i];
+        value = [dict objectForKey:key];
+        NSLog(@"key:%@ for value: %@", key, value);
+    }
+}
+
 
 void hlog(NSString* log, ...){
     va_list args;

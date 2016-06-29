@@ -11,3 +11,13 @@
 @interface HikkiIAPProxy : NSObject
 
 @end
+
+@protocol HikkiIAPProtocol <NSObject>
+
+@required
+-(void)completeTransaction:(NSString*)receipt;
+
+@optional
+-(void)failedTransaction:(NSString*)reason;
+
+@end
