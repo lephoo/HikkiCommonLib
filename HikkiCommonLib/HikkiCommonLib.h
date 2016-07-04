@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AdSupport/AdSupport.h>
 
 @interface HikkiCommonLib : NSObject
 

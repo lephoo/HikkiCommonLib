@@ -61,8 +61,17 @@
     return [[NSUUID UUID]UUIDString];
 }
 
+-(bool)isAdTrackingEnable{
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+    if(NSClassFromString(@"ASIdentifierManager")){
+        return [ASIdentifierManager sharedManager].advertisingTrackingEnabled;
+    }
+#endif
+    return false;
+}
+
 -(NSString*)getIDFAIdentifier{
-    //[[[ASIdentifierManager sharedManager]advertisingIdentifer]UUIDString];
+    [[[ASIdentifierManager sharedManager]advertisingIdentifier]UUIDString];
     return nil;
 }
 
@@ -165,6 +174,9 @@
 }
 
 
+
+/*
+ */
 void hlog(NSString* log, ...){
     va_list args;
     va_start(args, log);
