@@ -14,6 +14,9 @@
 #import <UIKit/UIWindow.h>
 #import <UIKit/UIViewController.h>
 
+#include <sys/sysctl.h>
+#include <mach/mach.h>
+
 @implementation HikkiCommonLib
 
 -(void)loadInfoPlist{
@@ -173,7 +176,56 @@
     }
 }
 
++(NSString*)getSysInfoByName:(char*)typeSpecifier{
+    
+    size_t size;
+    sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
+    char* answer = malloc(size);
+    sysctlbyname(typeSpecifier, answer, &size, NULL, 0);
+    NSString* res = [NSString stringWithCString:answer encoding:NSUTF8StringEncoding];
+    free(answer);
+    return res;
+}
 
++(NSString*)getPlatform{
+    
+    return [self getSysInfoByName:"hw.machine"];
+}
+
++(NSUInteger)getSysInfo:(uint)typeSpecifier{
+    size_t size = sizeof(int);
+    int results;
+    int mib[2] = {CTL_HW, typeSpecifier};
+    sysctl(mib, 2, &results, &size, NULL, 0);
+    return (NSUInteger)results;
+}
+
++(NSUInteger)getIndicatedInfo{
+    //frequency
+    [self getSysInfo:HW_CPU_FREQ];
+    //bus freq
+    [self getSysInfo:HW_BUS_FREQ];
+    //total mem
+    [self getSysInfo:HW_PHYSMEM];
+    //user mem
+    [self getSysInfo:HW_USERMEM];
+    //sock buf size
+    [self getSysInfo:KIPC_MAXSOCKBUF];
+    
+    return 0;
+}
+
++(NSUInteger)getAvailableMem{
+    
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCnt = HOST_VM_INFO_COUNT;
+    kern_return_t kernRet = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCnt);
+    if(kernRet != KERN_SUCCESS){
+        return NSNotFound;
+    }
+    NSLog(@"free: %lu\nactive: %lu\ninactive: %lu\nwire: %lu\nzero fill: %lu\nreactivations: %lu\npageins: %lu\npageouts: %lu\nfaults: %u\ncow_faults: %u\nlookups: %u\nhits: %u", vmStats.free_count * vm_page_size, vmStats.active_count * vm_page_size, vmStats.inactive_count * vm_page_size, vmStats.wire_count * vm_page_size, vmStats.zero_fill_count * vm_page_size, vmStats.reactivations * vm_page_size, vmStats.pageins * vm_page_size, vmStats.pageouts * vm_page_size, vmStats.faults, vmStats.cow_faults, vmStats.lookups, vmStats.hits ); 
+    return (vm_page_size * vmStats.free_count);//
+}
 
 /*
  */
