@@ -39,6 +39,30 @@ bool m_transactionObAdded;
     [req start];
 }
 
+-(void)checkObserver{
+    
+    if(m_transactionObAdded == NO){
+        [self addTransactionObserver];
+        m_transactionObAdded = YES;
+    }
+}
+
+-(void)checkReceipt{
+    /*SKReceiptRefreshRequest* req = [[SKReceiptRefreshRequest alloc]init];
+     req.delegate = self;
+     [req start];*/
+    [self checkObserver];
+    NSArray<SKPaymentTransaction*>* transArr = [SKPaymentQueue defaultQueue].transactions;
+    SKPaymentTransaction* trans = nil;
+    for(int i=0; i< transArr.count; i++){
+        trans = transArr[i];
+        if(trans != nil && trans.transactionState == SKPaymentTransactionStatePurchased){
+            NSLog(@"transactionId:%@", trans.transactionIdentifier);
+            [self completeTransaction:trans];
+        }
+    }
+}
+
 -(void)addTransactionObserver{
     [[SKPaymentQueue defaultQueue]addTransactionObserver:self];
 }
@@ -110,9 +134,46 @@ bool m_transactionObAdded;
         [self notifyUnityCompletePayment:productIdentifier receipt:receipt];
     }
     //remove transaction from queue
-    [[SKPaymentQueue defaultQueue]finishTransaction:transaction ];
+    //[[SKPaymentQueue defaultQueue]finishTransaction:transaction ];
 }
 
+-(void)serverCompleteTransaction:(NSString*)transactionId{
+    NSArray<SKPaymentTransaction*>* transArr = [SKPaymentQueue defaultQueue].transactions;
+    SKPaymentTransaction* trans = nil;
+    for(int i=0; i< transArr.count; i++){
+        trans = transArr[i];
+        if(trans != nil && [trans.transactionIdentifier isEqualToString:transactionId]){
+            if(trans.transactionState == SKPaymentTransactionStatePurchased){
+                NSLog(@"serverCompleteTransaction tid:%@", trans.transactionIdentifier);
+                [[SKPaymentQueue defaultQueue]finishTransaction:trans];
+            }
+        }
+    }
+}
+
+-(void)parseTransaction:(NSData*)receipt{
+    NSError *error = nil;
+    NSDictionary *receiptDict = [self dictionaryFromPlistData:receipt err:&error];
+    if(error != nil)
+        return;
+    NSString *transactionPurchaseInfo = [receiptDict objectForKey:@"purchase-info"];
+    NSString *decodedPurchaseInfo = [NSString stringWithUTF8String:[[NSData dataWithBase64EncodedString:transactionPurchaseInfo] bytes]];
+    NSData* decodedPurchaseInfoData = [decodedPurchaseInfo dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *purchaseInfoDict = [self dictionaryFromPlistData:decodedPurchaseInfoData err:&error];
+    NSString *transactionID = [purchaseInfoDict objectForKey:@"transaction-id"];
+    NSString *purchaseDateString = [purchaseInfoDict objectForKey:@"purchase-date"];
+    NSString *signature = [receiptDict objectForKey:@"signature"];
+    NSString *signatureDecoded = [NSString stringWithUTF8String:[[NSData dataWithBase64EncodedString:signature] bytes]];
+    // Convert the string into a date
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss z"];
+    NSDate *purchaseDate = [dateFormat dateFromString:[purchaseDateString stringByReplacingOccurrencesOfString:@"Etc/" withString:@""]];
+    NSLog(@"Raw receipt content: \n%@", [NSString stringWithUTF8String:[receipt bytes]]);
+    NSLog(@"Purchase Info: %@", purchaseInfoDict);
+    NSLog(@"Transaction ID: %@", transactionID);
+    NSLog(@"Purchase Date: %@", purchaseDate);
+    NSLog(@"Signature: %@", signatureDecoded);
+}
 
 -(void)verifyPurchaseLocal:(SKPaymentTransaction*)transaction{
     

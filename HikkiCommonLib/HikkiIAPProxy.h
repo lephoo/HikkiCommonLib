@@ -20,4 +20,6 @@
 @optional
 -(void)failedTransaction:(NSString*)reason;
 
+-(void)serverCompleteTransaction:(NSString*)transactionId;
+-(void)checkReceipt;
 @end

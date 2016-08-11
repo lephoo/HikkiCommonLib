@@ -16,6 +16,7 @@
 		B84BFD841BDF63A90095C8E5 /* HikkiCommonLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B84BFD831BDF63A90095C8E5 /* HikkiCommonLib.m */; };
 		B84BFD8C1BDF66220095C8E5 /* HikkiIAPProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B84BFD8B1BDF66210095C8E5 /* HikkiIAPProxy.m */; };
 		B88273771D0FAAA5007A5AA8 /* HikkiNetLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B88273761D0FAAA5007A5AA8 /* HikkiNetLib.m */; };
+		B8A252241D5C7FC200E1B89D /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = B8A252221D5C7FC200E1B89D /* IPAddress.c */; };
 		B8F486C71D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F486C61D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		B84BFD8B1BDF66210095C8E5 /* HikkiIAPProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HikkiIAPProxy.m; sourceTree = "<group>"; };
 		B88273761D0FAAA5007A5AA8 /* HikkiNetLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HikkiNetLib.m; sourceTree = "<group>"; };
 		B88273781D0FAAB8007A5AA8 /* HikkiNetLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HikkiNetLib.h; sourceTree = "<group>"; };
+		B8A252221D5C7FC200E1B89D /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
+		B8A252231D5C7FC200E1B89D /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 		B8F486C51D01866200DB50C2 /* HikkiUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HikkiUncaughtExceptionHandler.h; sourceTree = "<group>"; };
 		B8F486C61D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HikkiUncaughtExceptionHandler.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +134,8 @@
 		B84BFD801BDF63A90095C8E5 /* HikkiCommonLib */ = {
 			isa = PBXGroup;
 			children = (
+				B8A252221D5C7FC200E1B89D /* IPAddress.c */,
+				B8A252231D5C7FC200E1B89D /* IPAddress.h */,
 				B84BFD811BDF63A90095C8E5 /* HikkiCommonLib.h */,
 				B84BFD831BDF63A90095C8E5 /* HikkiCommonLib.m */,
 				B84BFD8A1BDF66210095C8E5 /* HikkiIAPProxy.h */,
@@ -303,6 +308,7 @@
 			files = (
 				B88273771D0FAAA5007A5AA8 /* HikkiNetLib.m in Sources */,
 				B84BFD841BDF63A90095C8E5 /* HikkiCommonLib.m in Sources */,
+				B8A252241D5C7FC200E1B89D /* IPAddress.c in Sources */,
 				3AD24F921D09C3B6008F7A0C /* NSObject+Test.m in Sources */,
 				B84BFD8C1BDF66220095C8E5 /* HikkiIAPProxy.m in Sources */,
 				B8F486C71D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm in Sources */,
