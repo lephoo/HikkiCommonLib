@@ -19,6 +19,9 @@
 #include <sys/sysctl.h>
 #include <mach/mach.h>
 
+//
+#define ObjectKeyMake(Name) (@"com.hikki."#Name)
+
 @implementation HikkiCommonLib
 
 -(void)loadInfoPlist{
