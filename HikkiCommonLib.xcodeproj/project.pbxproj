@@ -12,6 +12,9 @@
 		3AD24F801D09BA6F008F7A0C /* HikkiFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AD24F7F1D09BA6F008F7A0C /* HikkiFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AD24F921D09C3B6008F7A0C /* NSObject+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD24F911D09C3B6008F7A0C /* NSObject+Test.m */; };
 		B83B7F1C1D017B22006281FA /* HikkiGameCenterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B83B7F1B1D017B22006281FA /* HikkiGameCenterProxy.m */; };
+		B8493C2B1DB8660A0087C1FE /* HikkiWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B8493C291DB8660A0087C1FE /* HikkiWebViewController.h */; };
+		B8493C2C1DB8660A0087C1FE /* HikkiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */; };
+		B8493C2D1DB8660A0087C1FE /* HikkiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */; };
 		B84BFD821BDF63A90095C8E5 /* HikkiCommonLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B84BFD811BDF63A90095C8E5 /* HikkiCommonLib.h */; };
 		B84BFD841BDF63A90095C8E5 /* HikkiCommonLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B84BFD831BDF63A90095C8E5 /* HikkiCommonLib.m */; };
 		B84BFD8C1BDF66220095C8E5 /* HikkiIAPProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B84BFD8B1BDF66210095C8E5 /* HikkiIAPProxy.m */; };
@@ -55,6 +58,8 @@
 		3AD24F911D09C3B6008F7A0C /* NSObject+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Test.m"; sourceTree = "<group>"; };
 		B83B7F1A1D017B22006281FA /* HikkiGameCenterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HikkiGameCenterProxy.h; sourceTree = "<group>"; };
 		B83B7F1B1D017B22006281FA /* HikkiGameCenterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HikkiGameCenterProxy.m; sourceTree = "<group>"; };
+		B8493C291DB8660A0087C1FE /* HikkiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HikkiWebViewController.h; sourceTree = "<group>"; };
+		B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HikkiWebViewController.m; sourceTree = "<group>"; };
 		B84BFD7E1BDF63A90095C8E5 /* libHikkiCommonLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHikkiCommonLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84BFD811BDF63A90095C8E5 /* HikkiCommonLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HikkiCommonLib.h; sourceTree = "<group>"; };
 		B84BFD831BDF63A90095C8E5 /* HikkiCommonLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HikkiCommonLib.m; sourceTree = "<group>"; };
@@ -149,6 +154,8 @@
 				3A19182D1D0BEFF1000F6ACF /* HikkiProtocol.h */,
 				B88273761D0FAAA5007A5AA8 /* HikkiNetLib.m */,
 				B88273781D0FAAB8007A5AA8 /* HikkiNetLib.h */,
+				B8493C291DB8660A0087C1FE /* HikkiWebViewController.h */,
+				B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */,
 			);
 			path = HikkiCommonLib;
 			sourceTree = "<group>";
@@ -161,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AD24F801D09BA6F008F7A0C /* HikkiFramework.h in Headers */,
+				B8493C2B1DB8660A0087C1FE /* HikkiWebViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8493C2D1DB8660A0087C1FE /* HikkiWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8493C2C1DB8660A0087C1FE /* HikkiWebViewController.m in Sources */,
 				B88273771D0FAAA5007A5AA8 /* HikkiNetLib.m in Sources */,
 				B84BFD841BDF63A90095C8E5 /* HikkiCommonLib.m in Sources */,
 				B8A252241D5C7FC200E1B89D /* IPAddress.c in Sources */,
