@@ -33,6 +33,12 @@
     //NSNumber* style = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"Unity_LoadingActivityIndicatorStyle"];
 }
 
+-(id)getInfoPlistProperty:(NSString*)propertyName{
+    NSObject* obj = [[[NSBundle mainBundle]infoDictionary] valueForKey:propertyName];
+    
+    return obj;
+}
+
 -(void)loadJsonFile:(NSString*)filePath{
     NSString* path = [[NSBundle mainBundle]pathForResource:filePath ofType:nil];
     NSData* data = [NSData dataWithContentsOfFile:path];
@@ -50,6 +56,46 @@
         //NSLog(@" jsonData:%@", json);
     }
     return json;
+}
+/*NSDictionary* uploadData = @{
+                             @"productId":cardId,
+                             @"productName":[extData objectForKey:@"product"],
+                             @"productPrice":[data objectForKey:@"needMoney"],
+                             @"productCount":@"1",
+                             @"productDesc":[extData objectForKey:@"desc"],
+                             @"coinName":@"钻石",
+                             @"coinRate":@"10",
+                             @"roleId":[data objectForKey:@"roleId"],
+                             @"roleName":[data objectForKey:@"roleName"],
+                             @"roleGrade":[data objectForKey:@"level"],
+                             @"roleBalance":[data objectForKey:@"coin"],
+                             @"vipLevel":[data objectForKey:@"vipLevel"],
+                             @"partyname":[data objectForKey:@"partyName"],
+                             @"zoneId":[data objectForKey:@"groupId"],
+                             @"zoneName":zoneName,
+                             @"gameReceipts":receipt
+                             };*/
+
+-(NSDictionary*)getDictByJson:(NSString*)json{
+    
+    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&err];
+    if(err != nil){
+        //NSLog(@"%@", [err localizedDescription]);
+    }
+    return data;
+}
+
+-(NSString*)getJsonByDict:(NSDictionary*)dict{
+    NSError* jsonErr = nil;
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&jsonErr];
+    if(jsonErr != nil && jsonErr.localizedDescription != nil){
+        NSLog(@"getJsonByDict err:%@", jsonErr.localizedDescription);
+    }
+    return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
 -(void)predicateHandler{
@@ -204,6 +250,8 @@
     sysctl(mib, 2, &results, &size, NULL, 0);
     return (NSUInteger)results;
 }
+
+
 
 +(NSUInteger)getIndicatedInfo{
     //frequency
