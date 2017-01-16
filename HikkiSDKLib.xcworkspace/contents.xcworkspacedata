@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:HikkiSDKLib"
+      name = "HikkiSDKLib">
+      <FileRef
+         location = "group:HikkiIAPProxy.h">
+      </FileRef>
+      <FileRef
+         location = "group:HikkiIAPProxy.m">
+      </FileRef>
+      <FileRef
+         location = "group:HikkiSDKLib.h">
+      </FileRef>
+      <FileRef
+         location = "group:HikkiSDKLib.m">
+      </FileRef>
+      <FileRef
+         location = "group:SDKInterface.h">
+      </FileRef>
+   </Group>
+</Workspace>

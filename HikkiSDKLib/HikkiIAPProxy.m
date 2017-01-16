@@ -1,24 +1,22 @@
 //
-//  HikkiIAPInterface.m
-//  HikkiCommonLib
+//  KoreaIAPProxy.m
+//  Unity-iPhone
 //
-//  Created by jiangtao on 15/10/27.
-//  Copyright © 2015年 Hikki. All rights reserved.
+//  Created by jiangtao on 2016/6/1.
+//
 //
 
 #import "HikkiIAPProxy.h"
-#import <StoreKit/StoreKit.h>
-
-@interface HikkiIAPProxy()<SKProductsRequestDelegate, SKPaymentTransactionObserver>
-
-@end
+#import "NSData+Base64.h"
 
 @implementation HikkiIAPProxy
 bool m_observerMark;
 bool m_transactionObAdded;
+#pragma mark - pay
 
 -(BOOL)checkIfAllowPayment{
     if([SKPaymentQueue canMakePayments]){
+        //[self getProductInfo];
         return YES;
     }else{
         
@@ -29,11 +27,12 @@ bool m_transactionObAdded;
 -(void)getProductInfo:(NSString*)productId{
     if(m_observerMark == NO)
         m_observerMark = YES;
-    if(m_transactionObAdded == NO){
-        [self addTransactionObserver];
-        m_transactionObAdded = YES;
-    }
+    [self checkObserver];
+    
+    [self checkReceipt];
+    
     NSSet* productSet = [NSSet setWithArray:@[productId]];
+    //NSSet* productSet = [NSSet setWithArray:@[@"com.the9.th.sok.99"]];
     SKProductsRequest* req = [[SKProductsRequest alloc]initWithProductIdentifiers:productSet];
     req.delegate = self;
     [req start];
@@ -76,10 +75,10 @@ bool m_transactionObAdded;
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response NS_AVAILABLE_IOS(3_0){
     NSArray* myProducts = response.products;
     if(myProducts.count == 0){
-        NSLog(@"there is no product !!!");
+        NSLog(@"[IAP]there is no product !!!");
         return;
     }
-    NSLog(@"Products--------");
+    NSLog(@"[IAP]Products--------");
     for(SKProduct* product in myProducts){
         if(product != nil){
             NSLog(@"desc:%@, id:%@, price:%@", product.localizedDescription, product.productIdentifier, product.price.stringValue);
@@ -93,6 +92,7 @@ bool m_transactionObAdded;
 #pragma mark - SKPaymentTransactionObserver impl
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray<SKPaymentTransaction *> *)transactions NS_AVAILABLE_IOS(3_0){
+    //NSLog(@"PaymentQueue cnt:%d", [transactions count]);
     for(SKPaymentTransaction* transaction in transactions){
         switch(transaction.transactionState){
             case SKPaymentTransactionStatePurchased://purchase finished
@@ -125,7 +125,7 @@ bool m_transactionObAdded;
     NSLog(@"[IAP]Receipt:%@", receipt);
     //NSLog(@"[IAP]receiptDesc:%@", receiptDesc);
     //if(receiptData != nil)
-    //[self parseTransaction:receiptData];
+        //[self parseTransaction:receiptData];
     //NSString* receipt = [transaction.transactionReceipt base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     if([productIdentifier length] > 0){
         //send to game server for verification
@@ -151,7 +151,7 @@ bool m_transactionObAdded;
     }
 }
 
-/*-(void)parseTransaction:(NSData*)receipt{
+-(void)parseTransaction:(NSData*)receipt{
     NSError *error = nil;
     NSDictionary *receiptDict = [self dictionaryFromPlistData:receipt err:&error];
     if(error != nil)
@@ -173,28 +173,21 @@ bool m_transactionObAdded;
     NSLog(@"Transaction ID: %@", transactionID);
     NSLog(@"Purchase Date: %@", purchaseDate);
     NSLog(@"Signature: %@", signatureDecoded);
-}*/
+}
 
 -(void)verifyPurchaseLocal:(SKPaymentTransaction*)transaction{
     
     NSData* receiptData = [NSData dataWithContentsOfURL:[[NSBundle mainBundle]appStoreReceiptURL]];
-    if(receiptData == nil){
-        NSLog(@"verify receiptData is Null");
-        return;
-    }
-    NSString* oriStr = [[NSString alloc]initWithData:receiptData encoding:NSUTF8StringEncoding];
-    NSLog(@"verify oriStr:%@", oriStr);
     NSString* encodedStr = [receiptData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
     //
     if(encodedStr != nil){
-        NSString* rcpStr = [NSString stringWithFormat:@"%@<order>%@",  transaction.payment.productIdentifier, encodedStr];
-        NSLog(@"verify EcodedStr:%@", rcpStr);
-        //UnitySendMessage("SDK", "paySuccess", [rcpStr UTF8String]);
+        NSString* rcpStr = [NSString stringWithFormat:@"%@<order>%@<order>%@",  transaction.payment.productIdentifier, encodedStr, transaction.transactionIdentifier];
+        UnitySendMessage("SDK", "paySuccess", [rcpStr UTF8String]);
     }
     
     NSLog(@"[IAP] verifyPurchaseLocal encodedStr:%@", encodedStr);
     
-#ifdef HIKKI_DEBUG
+#ifdef SOK_DEBUG
     [self postCheckReceipt:encodedStr];
 #endif
 }
@@ -241,31 +234,11 @@ bool m_transactionObAdded;
     return dictionaryParsed;
 }
 
-
--(void)parseTransaction:(NSData*)receipt{
-    NSError *error = nil;
-    NSDictionary *receiptDict = [self dictionaryFromPlistData:receipt err:&error];
-    if(error != nil)
-        return;
-    NSString *transactionPurchaseInfo = [receiptDict objectForKey:@"purchase-info"];
-    NSString *decodedPurchaseInfo = [NSString stringWithUTF8String:[[NSData dataWithBase64EncodedString:transactionPurchaseInfo] bytes]];
-    NSData* decodedPurchaseInfoData = [decodedPurchaseInfo dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *purchaseInfoDict = [self dictionaryFromPlistData:decodedPurchaseInfoData err:&error];
-    NSString *transactionID = [purchaseInfoDict objectForKey:@"transaction-id"];
-    NSString *purchaseDateString = [purchaseInfoDict objectForKey:@"purchase-date"];
-    NSString *signature = [receiptDict objectForKey:@"signature"];
-    NSString *signatureDecoded = [NSString stringWithUTF8String:[[NSData dataWithBase64EncodedString:signature] bytes]];
-    // Convert the string into a date
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss z"];
-    NSDate *purchaseDate = [dateFormat dateFromString:[purchaseDateString stringByReplacingOccurrencesOfString:@"Etc/" withString:@""]];
-    NSLog(@"Raw receipt content: \n%@", [NSString stringWithUTF8String:[receipt bytes]]);
-    NSLog(@"Purchase Info: %@", purchaseInfoDict);
-    NSLog(@"Transaction ID: %@", transactionID);
-    NSLog(@"Purchase Date: %@", purchaseDate);
-    NSLog(@"Signature: %@", signatureDecoded);
+-(void)notifyUnityCompletePayment:(NSString*)productId receipt:(NSString*)receipt{
+    NSLog(@"[IAP]NotifyUnityCompletePayment");
+    //UnitySendMessage("SDK", "IAP_paySuccess", [productId UTF8String]);
+    
 }
-
 
 -(void)failedTransaction:(SKPaymentTransaction* )transaction{
     NSLog(@"[IAP]transaction failed");
@@ -286,14 +259,29 @@ bool m_transactionObAdded;
     [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
     if(m_observerMark == NO)
         return;
-    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"error" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+    /*UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"error" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
     [alert addButtonWithTitle:@"Yes"];
-    [alert show];
+    [alert show];*/
 }
 
 -(void)restoreTransaction:(SKPaymentTransaction*)transaction{
     //already bought
     [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
+}
+
+static HikkiIAPProxy* m_shared;
++(HikkiIAPProxy*) getShared{
+    @synchronized(m_shared) {
+        if(m_shared == Nil){
+            m_shared = [[HikkiIAPProxy alloc]init];
+        }
+        return m_shared;
+    }
+}
+
+-(void)dealloc{
+    [self removeTransactionObserver];
+    [super dealloc];
 }
 
 @end

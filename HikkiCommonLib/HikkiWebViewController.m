@@ -39,13 +39,13 @@
     NSString* urlstr = [[request URL]absoluteString];
     NSArray* urlComps = [urlstr componentsSeperatedByString:@":"];
     //window.location.href="obj:doFunc1";
-    if([urlComps count] && [[urlComps objectAtIndex:o]isEqualToString:@"objc"]){
+    /*if([urlComps count] && [[urlComps objectAtIndex:o]isEqualToString:@"objc"]){
         NSString* funcStr = [urlComps objectAtIndex:1];
         if([funcStr isEqualToString:@"doFunc1"]){
             
         }
         return NO;
-    }
+    }*/
     return YES;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -53,7 +53,7 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     //function getString(){return "abc";}
-    NSString* str = [self.webview stringByEvaluatingJavaScriptFromString:@"getString();"];
+    //NSString* str = [self.webview stringByEvaluatingJavaScriptFromString:@"getString();"];
     
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{

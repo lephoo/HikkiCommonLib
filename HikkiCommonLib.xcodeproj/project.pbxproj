@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17336C4D1E2CB0DC000F1E36 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 17336C4A1E2CB0DC000F1E36 /* NSData+Base64.m */; };
+		17336C4E1E2CB0DC000F1E36 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 17336C4C1E2CB0DC000F1E36 /* NSString+Base64.m */; };
+		17336C5C1E2CB1A7000F1E36 /* HikkiSDKLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 17336C5B1E2CB1A7000F1E36 /* HikkiSDKLib.m */; };
+		17336C5D1E2CB1A7000F1E36 /* HikkiSDKLib.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 17336C5A1E2CB1A7000F1E36 /* HikkiSDKLib.h */; };
+		17336C631E2CB231000F1E36 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17336C621E2CB231000F1E36 /* StoreKit.framework */; };
+		17336C641E2CB934000F1E36 /* HikkiIAPProxy.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 17336C501E2CB0E2000F1E36 /* HikkiIAPProxy.h */; };
+		17336C651E2CB938000F1E36 /* SDKInterface.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 17336C521E2CB0E2000F1E36 /* SDKInterface.h */; };
+		17336C661E2CB93E000F1E36 /* HikkiIAPProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17336C511E2CB0E2000F1E36 /* HikkiIAPProxy.m */; };
 		3A1918271D0BEA23000F6ACF /* HikkiARCLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A1918261D0BEA23000F6ACF /* HikkiARCLib.h */; };
 		3A1918291D0BEA23000F6ACF /* HikkiARCLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1918281D0BEA23000F6ACF /* HikkiARCLib.m */; };
 		3AD24F801D09BA6F008F7A0C /* HikkiFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AD24F7F1D09BA6F008F7A0C /* HikkiFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,15 +23,27 @@
 		B8493C2B1DB8660A0087C1FE /* HikkiWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B8493C291DB8660A0087C1FE /* HikkiWebViewController.h */; };
 		B8493C2C1DB8660A0087C1FE /* HikkiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */; };
 		B8493C2D1DB8660A0087C1FE /* HikkiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */; };
-		B84BFD821BDF63A90095C8E5 /* HikkiCommonLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B84BFD811BDF63A90095C8E5 /* HikkiCommonLib.h */; };
+		B84BFD821BDF63A90095C8E5 /* HikkiCommonLib.h in Copy Files */ = {isa = PBXBuildFile; fileRef = B84BFD811BDF63A90095C8E5 /* HikkiCommonLib.h */; };
 		B84BFD841BDF63A90095C8E5 /* HikkiCommonLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B84BFD831BDF63A90095C8E5 /* HikkiCommonLib.m */; };
-		B84BFD8C1BDF66220095C8E5 /* HikkiIAPProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B84BFD8B1BDF66210095C8E5 /* HikkiIAPProxy.m */; };
 		B88273771D0FAAA5007A5AA8 /* HikkiNetLib.m in Sources */ = {isa = PBXBuildFile; fileRef = B88273761D0FAAA5007A5AA8 /* HikkiNetLib.m */; };
 		B8A252241D5C7FC200E1B89D /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = B8A252221D5C7FC200E1B89D /* IPAddress.c */; };
 		B8F486C71D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F486C61D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		17336C561E2CB1A7000F1E36 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				17336C651E2CB938000F1E36 /* SDKInterface.h in Copy Files */,
+				17336C641E2CB934000F1E36 /* HikkiIAPProxy.h in Copy Files */,
+				17336C5D1E2CB1A7000F1E36 /* HikkiSDKLib.h in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A1918221D0BEA22000F6ACF /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -34,19 +54,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B84BFD7C1BDF63A90095C8E5 /* CopyFiles */ = {
+		B84BFD7C1BDF63A90095C8E5 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				B84BFD821BDF63A90095C8E5 /* HikkiCommonLib.h in CopyFiles */,
+				B84BFD821BDF63A90095C8E5 /* HikkiCommonLib.h in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		17336C491E2CB0DC000F1E36 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		17336C4A1E2CB0DC000F1E36 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		17336C4B1E2CB0DC000F1E36 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		17336C4C1E2CB0DC000F1E36 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		17336C501E2CB0E2000F1E36 /* HikkiIAPProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HikkiIAPProxy.h; sourceTree = "<group>"; };
+		17336C511E2CB0E2000F1E36 /* HikkiIAPProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HikkiIAPProxy.m; sourceTree = "<group>"; };
+		17336C521E2CB0E2000F1E36 /* SDKInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKInterface.h; sourceTree = "<group>"; };
+		17336C581E2CB1A7000F1E36 /* libHikkiSDKLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHikkiSDKLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		17336C5A1E2CB1A7000F1E36 /* HikkiSDKLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HikkiSDKLib.h; sourceTree = "<group>"; };
+		17336C5B1E2CB1A7000F1E36 /* HikkiSDKLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HikkiSDKLib.m; sourceTree = "<group>"; };
+		17336C621E2CB231000F1E36 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3A1918241D0BEA23000F6ACF /* libHikkiARCLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHikkiARCLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1918261D0BEA23000F6ACF /* HikkiARCLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HikkiARCLib.h; sourceTree = "<group>"; };
 		3A1918281D0BEA23000F6ACF /* HikkiARCLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HikkiARCLib.m; sourceTree = "<group>"; };
@@ -74,6 +106,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		17336C551E2CB1A7000F1E36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17336C631E2CB231000F1E36 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A1918211D0BEA22000F6ACF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,6 +138,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17336C481E2CB0DC000F1E36 /* HikkiExtensionLib */ = {
+			isa = PBXGroup;
+			children = (
+				17336C491E2CB0DC000F1E36 /* NSData+Base64.h */,
+				17336C4A1E2CB0DC000F1E36 /* NSData+Base64.m */,
+				17336C4B1E2CB0DC000F1E36 /* NSString+Base64.h */,
+				17336C4C1E2CB0DC000F1E36 /* NSString+Base64.m */,
+			);
+			path = HikkiExtensionLib;
+			sourceTree = "<group>";
+		};
+		17336C4F1E2CB0E2000F1E36 /* HikkiSDKLib */ = {
+			isa = PBXGroup;
+			children = (
+				17336C501E2CB0E2000F1E36 /* HikkiIAPProxy.h */,
+				17336C511E2CB0E2000F1E36 /* HikkiIAPProxy.m */,
+				17336C521E2CB0E2000F1E36 /* SDKInterface.h */,
+				17336C5A1E2CB1A7000F1E36 /* HikkiSDKLib.h */,
+				17336C5B1E2CB1A7000F1E36 /* HikkiSDKLib.m */,
+			);
+			path = HikkiSDKLib;
+			sourceTree = "<group>";
+		};
+		17336C611E2CB231000F1E36 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17336C621E2CB231000F1E36 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3A1918251D0BEA23000F6ACF /* HikkiARCLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,10 +190,13 @@
 		B84BFD751BDF63A90095C8E5 = {
 			isa = PBXGroup;
 			children = (
+				17336C4F1E2CB0E2000F1E36 /* HikkiSDKLib */,
+				17336C481E2CB0DC000F1E36 /* HikkiExtensionLib */,
 				B84BFD801BDF63A90095C8E5 /* HikkiCommonLib */,
 				3AD24F7E1D09BA6F008F7A0C /* HikkiFramework */,
 				3A1918251D0BEA23000F6ACF /* HikkiARCLib */,
 				B84BFD7F1BDF63A90095C8E5 /* Products */,
+				17336C611E2CB231000F1E36 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +206,7 @@
 				B84BFD7E1BDF63A90095C8E5 /* libHikkiCommonLib.a */,
 				3AD24F7D1D09BA6F008F7A0C /* HikkiFramework.framework */,
 				3A1918241D0BEA23000F6ACF /* libHikkiARCLib.a */,
+				17336C581E2CB1A7000F1E36 /* libHikkiSDKLib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +250,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		17336C571E2CB1A7000F1E36 /* HikkiSDKLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17336C5E1E2CB1A7000F1E36 /* Build configuration list for PBXNativeTarget "HikkiSDKLib" */;
+			buildPhases = (
+				17336C541E2CB1A7000F1E36 /* Sources */,
+				17336C551E2CB1A7000F1E36 /* Frameworks */,
+				17336C561E2CB1A7000F1E36 /* Copy Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HikkiSDKLib;
+			productName = HikkiSDKLib;
+			productReference = 17336C581E2CB1A7000F1E36 /* libHikkiSDKLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		3A1918231D0BEA22000F6ACF /* HikkiARCLib */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A19182C1D0BEA23000F6ACF /* Build configuration list for PBXNativeTarget "HikkiARCLib" */;
@@ -215,7 +307,7 @@
 			buildConfigurationList = B84BFD871BDF63A90095C8E5 /* Build configuration list for PBXNativeTarget "HikkiCommonLib" */;
 			buildPhases = (
 				B84BFD7A1BDF63A90095C8E5 /* Sources */,
-				B84BFD7C1BDF63A90095C8E5 /* CopyFiles */,
+				B84BFD7C1BDF63A90095C8E5 /* Copy Files */,
 				B84BFD7B1BDF63A90095C8E5 /* Frameworks */,
 				3AD24F931D09DF64008F7A0C /* Run Script */,
 			);
@@ -237,6 +329,10 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Hikki;
 				TargetAttributes = {
+					17336C571E2CB1A7000F1E36 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
 					3A1918231D0BEA22000F6ACF = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -263,6 +359,7 @@
 				B84BFD7D1BDF63A90095C8E5 /* HikkiCommonLib */,
 				3AD24F7C1D09BA6F008F7A0C /* HikkiFramework */,
 				3A1918231D0BEA22000F6ACF /* HikkiARCLib */,
+				17336C571E2CB1A7000F1E36 /* HikkiSDKLib */,
 			);
 		};
 /* End PBXProject section */
@@ -295,6 +392,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		17336C541E2CB1A7000F1E36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17336C661E2CB93E000F1E36 /* HikkiIAPProxy.m in Sources */,
+				17336C5C1E2CB1A7000F1E36 /* HikkiSDKLib.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A1918201D0BEA22000F6ACF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,16 +425,49 @@
 				B88273771D0FAAA5007A5AA8 /* HikkiNetLib.m in Sources */,
 				B84BFD841BDF63A90095C8E5 /* HikkiCommonLib.m in Sources */,
 				B8A252241D5C7FC200E1B89D /* IPAddress.c in Sources */,
+				17336C4E1E2CB0DC000F1E36 /* NSString+Base64.m in Sources */,
 				3AD24F921D09C3B6008F7A0C /* NSObject+Test.m in Sources */,
-				B84BFD8C1BDF66220095C8E5 /* HikkiIAPProxy.m in Sources */,
 				B8F486C71D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm in Sources */,
 				B83B7F1C1D017B22006281FA /* HikkiGameCenterProxy.m in Sources */,
+				17336C4D1E2CB0DC000F1E36 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		17336C5F1E2CB1A7000F1E36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		17336C601E2CB1A7000F1E36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		3A19182A1D0BEA23000F6ACF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -507,6 +646,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		17336C5E1E2CB1A7000F1E36 /* Build configuration list for PBXNativeTarget "HikkiSDKLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17336C5F1E2CB1A7000F1E36 /* Debug */,
+				17336C601E2CB1A7000F1E36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3A19182C1D0BEA23000F6ACF /* Build configuration list for PBXNativeTarget "HikkiARCLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
