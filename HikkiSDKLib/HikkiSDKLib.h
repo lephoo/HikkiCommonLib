@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SDKInterface.h"
 
-@interface HikkiSDKLib : NSObject<SDKInterface>
+@interface HikkiSDKLib : NSObject{
+    SDKInterfaceImpl* m_SDKInterface;
+}
 
 @end

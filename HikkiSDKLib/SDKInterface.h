@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@interface SDKInterfaceImpl :NSObject<SDKInterface>
+
+@end
+
 @protocol SDKInterface <NSObject>
-@required
+@optional
 -(void)didFinishLaunching:(NSDictionary*)launchOptions;
 @optional
 -(void)setDeviceToken:(NSData*)deviceToken;
