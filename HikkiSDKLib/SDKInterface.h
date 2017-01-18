@@ -2,7 +2,7 @@
 //  SDKInterface.h
 //  Unity-iPhone
 //
-//  Created by liupingpin on 2017/1/16.
+//  Created by jiangtao on 2017/1/16.
 //
 //
 

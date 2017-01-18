@@ -213,9 +213,23 @@
     app.applicationIconBadgeNumber = 0;
 }
 
-#pragma mark - Multimedia
 
 #pragma mark - MISC
+
+-(void)savePlayerPrefs:(NSString*)token key:(NSString*)key{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //[defaults setObject:@"chaoyuan" forKey:@"username"];
+    //[defaults setFloat:18.6 forKey:@"text_size"];
+    //[defaults setBool:YES forKey:@"auto_login"];
+    [defaults setObject:[NSString stringWithFormat:@"%@", token] forKey:key];
+    //强制数据保存
+    [defaults synchronize];
+}
+
+-(NSString*)getPlayerPrefs:(NSString*)key{
+    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
+    return [def objectForKey:key];
+}
 
 -(void)describeDictionary:(NSDictionary*) dict{
     NSArray* keys;

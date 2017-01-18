@@ -2,7 +2,7 @@
 //  HikkiSDKLib.h
 //  HikkiCommonLib
 //
-//  Created by liupingpin on 2017/1/17.
+//  Created by jiangtao on 2017/1/17.
 //  Copyright © 2017年 Hikki. All rights reserved.
 //
 

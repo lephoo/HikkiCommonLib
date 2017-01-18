@@ -2,7 +2,7 @@
 //  HikkiCommonLib+Media.h
 //  HikkiCommonLib
 //
-//  Created by liupingpin on 2017/1/18.
+//  Created by jiangtao on 2017/1/18.
 //  Copyright © 2017年 Hikki. All rights reserved.
 //
 

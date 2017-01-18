@@ -13,6 +13,7 @@
 		17336C641E2CB934000F1E36 /* HikkiIAPProxy.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 17336C501E2CB0E2000F1E36 /* HikkiIAPProxy.h */; };
 		17336C651E2CB938000F1E36 /* SDKInterface.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 17336C521E2CB0E2000F1E36 /* SDKInterface.h */; };
 		17336C661E2CB93E000F1E36 /* HikkiIAPProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17336C511E2CB0E2000F1E36 /* HikkiIAPProxy.m */; };
+		17664A351E2F241E00DFAA7F /* HikkiGenericTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 17664A341E2F241E00DFAA7F /* HikkiGenericTest.m */; };
 		17B236E21E2F0A92007E10BA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B236E11E2F0A92007E10BA /* AVFoundation.framework */; };
 		17B236E81E2F0D51007E10BA /* HikkiCommonLib+Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B236E71E2F0D51007E10BA /* HikkiCommonLib+Media.m */; };
 		17CE59631E2DF49A00834BD5 /* HikkiSDKLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CE59621E2DF49A00834BD5 /* HikkiSDKLib.m */; };
@@ -76,6 +77,8 @@
 		17336C521E2CB0E2000F1E36 /* SDKInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKInterface.h; sourceTree = "<group>"; };
 		17336C581E2CB1A7000F1E36 /* libHikkiSDKLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHikkiSDKLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		17336C621E2CB231000F1E36 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		17664A331E2F241E00DFAA7F /* HikkiGenericTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HikkiGenericTest.h; sourceTree = "<group>"; };
+		17664A341E2F241E00DFAA7F /* HikkiGenericTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HikkiGenericTest.m; sourceTree = "<group>"; };
 		17B236DF1E2F0A00007E10BA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		17B236E11E2F0A92007E10BA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		17B236E61E2F0D51007E10BA /* HikkiCommonLib+Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HikkiCommonLib+Media.h"; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */,
 				17B236E61E2F0D51007E10BA /* HikkiCommonLib+Media.h */,
 				17B236E71E2F0D51007E10BA /* HikkiCommonLib+Media.m */,
+				17664A331E2F241E00DFAA7F /* HikkiGenericTest.h */,
+				17664A341E2F241E00DFAA7F /* HikkiGenericTest.m */,
 			);
 			path = HikkiCommonLib;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 				B84BFD841BDF63A90095C8E5 /* HikkiCommonLib.m in Sources */,
 				B8A252241D5C7FC200E1B89D /* IPAddress.c in Sources */,
 				17336C4E1E2CB0DC000F1E36 /* NSString+Base64.m in Sources */,
+				17664A351E2F241E00DFAA7F /* HikkiGenericTest.m in Sources */,
 				B8F486C71D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm in Sources */,
 				B83B7F1C1D017B22006281FA /* HikkiGameCenterProxy.m in Sources */,
 				17336C4D1E2CB0DC000F1E36 /* NSData+Base64.m in Sources */,

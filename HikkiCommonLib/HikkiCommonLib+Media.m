@@ -34,6 +34,25 @@
     [[uvc view]addSubview:avc.view];
     [player play];
     //system sound
+    //MPVolumeView* vv = [[MPVolumeView alloc]init];
+}
+
+/**
+ return prev volume value
+ **/
+-(float)setSystemVolume:(float)volume{
     MPVolumeView* vv = [[MPVolumeView alloc]init];
+    UISlider* volumeSlider = nil;
+    for (UIView* view in [vv subviews]) {
+        NSString* desc = [[view class]description];
+        if([desc isEqualToString:@"MPVolumeSlider"]){
+            volumeSlider = (UISlider*)view;
+            break;
+        }
+    }
+    float prevVol = [[AVAudioSession sharedInstance]outputVolume];
+    [volumeSlider setValue:volume animated:NO];
+    [volumeSlider sendActionsForControlEvents:UIControlEventTouchUpInside];
+    return prevVol;
 }
 @end
