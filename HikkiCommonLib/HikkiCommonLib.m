@@ -213,6 +213,10 @@
     app.applicationIconBadgeNumber = 0;
 }
 
+#pragma mark - Multimedia
+
+#pragma mark - MISC
+
 -(void)describeDictionary:(NSDictionary*) dict{
     NSArray* keys;
     NSInteger i, count;

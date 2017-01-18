@@ -13,11 +13,12 @@
 		17336C641E2CB934000F1E36 /* HikkiIAPProxy.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 17336C501E2CB0E2000F1E36 /* HikkiIAPProxy.h */; };
 		17336C651E2CB938000F1E36 /* SDKInterface.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 17336C521E2CB0E2000F1E36 /* SDKInterface.h */; };
 		17336C661E2CB93E000F1E36 /* HikkiIAPProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17336C511E2CB0E2000F1E36 /* HikkiIAPProxy.m */; };
+		17B236E21E2F0A92007E10BA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B236E11E2F0A92007E10BA /* AVFoundation.framework */; };
+		17B236E81E2F0D51007E10BA /* HikkiCommonLib+Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B236E71E2F0D51007E10BA /* HikkiCommonLib+Media.m */; };
 		17CE59631E2DF49A00834BD5 /* HikkiSDKLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CE59621E2DF49A00834BD5 /* HikkiSDKLib.m */; };
 		3A1918271D0BEA23000F6ACF /* HikkiARCLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A1918261D0BEA23000F6ACF /* HikkiARCLib.h */; };
 		3A1918291D0BEA23000F6ACF /* HikkiARCLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1918281D0BEA23000F6ACF /* HikkiARCLib.m */; };
 		3AD24F801D09BA6F008F7A0C /* HikkiFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AD24F7F1D09BA6F008F7A0C /* HikkiFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AD24F921D09C3B6008F7A0C /* NSObject+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD24F911D09C3B6008F7A0C /* NSObject+Test.m */; };
 		B83B7F1C1D017B22006281FA /* HikkiGameCenterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B83B7F1B1D017B22006281FA /* HikkiGameCenterProxy.m */; };
 		B8493C2B1DB8660A0087C1FE /* HikkiWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B8493C291DB8660A0087C1FE /* HikkiWebViewController.h */; };
 		B8493C2C1DB8660A0087C1FE /* HikkiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */; };
@@ -75,6 +76,10 @@
 		17336C521E2CB0E2000F1E36 /* SDKInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKInterface.h; sourceTree = "<group>"; };
 		17336C581E2CB1A7000F1E36 /* libHikkiSDKLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHikkiSDKLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		17336C621E2CB231000F1E36 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		17B236DF1E2F0A00007E10BA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		17B236E11E2F0A92007E10BA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		17B236E61E2F0D51007E10BA /* HikkiCommonLib+Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HikkiCommonLib+Media.h"; sourceTree = "<group>"; };
+		17B236E71E2F0D51007E10BA /* HikkiCommonLib+Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HikkiCommonLib+Media.m"; sourceTree = "<group>"; };
 		17CE59611E2DF49A00834BD5 /* HikkiSDKLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HikkiSDKLib.h; sourceTree = "<group>"; };
 		17CE59621E2DF49A00834BD5 /* HikkiSDKLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HikkiSDKLib.m; sourceTree = "<group>"; };
 		3A1918241D0BEA23000F6ACF /* libHikkiARCLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHikkiARCLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +89,6 @@
 		3AD24F7D1D09BA6F008F7A0C /* HikkiFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HikkiFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD24F7F1D09BA6F008F7A0C /* HikkiFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HikkiFramework.h; sourceTree = "<group>"; };
 		3AD24F811D09BA6F008F7A0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AD24F901D09C3B6008F7A0C /* NSObject+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Test.h"; sourceTree = "<group>"; };
-		3AD24F911D09C3B6008F7A0C /* NSObject+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Test.m"; sourceTree = "<group>"; };
 		B83B7F1A1D017B22006281FA /* HikkiGameCenterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HikkiGameCenterProxy.h; sourceTree = "<group>"; };
 		B83B7F1B1D017B22006281FA /* HikkiGameCenterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HikkiGameCenterProxy.m; sourceTree = "<group>"; };
 		B8493C291DB8660A0087C1FE /* HikkiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HikkiWebViewController.h; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B236E21E2F0A92007E10BA /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +166,8 @@
 		17336C611E2CB231000F1E36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17B236E11E2F0A92007E10BA /* AVFoundation.framework */,
+				17B236DF1E2F0A00007E10BA /* CoreVideo.framework */,
 				17336C621E2CB231000F1E36 /* StoreKit.framework */,
 			);
 			name = Frameworks;
@@ -222,13 +228,13 @@
 				B83B7F1B1D017B22006281FA /* HikkiGameCenterProxy.m */,
 				B8F486C51D01866200DB50C2 /* HikkiUncaughtExceptionHandler.h */,
 				B8F486C61D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm */,
-				3AD24F901D09C3B6008F7A0C /* NSObject+Test.h */,
-				3AD24F911D09C3B6008F7A0C /* NSObject+Test.m */,
 				3A19182D1D0BEFF1000F6ACF /* HikkiProtocol.h */,
 				B88273761D0FAAA5007A5AA8 /* HikkiNetLib.m */,
 				B88273781D0FAAB8007A5AA8 /* HikkiNetLib.h */,
 				B8493C291DB8660A0087C1FE /* HikkiWebViewController.h */,
 				B8493C2A1DB8660A0087C1FE /* HikkiWebViewController.m */,
+				17B236E61E2F0D51007E10BA /* HikkiCommonLib+Media.h */,
+				17B236E71E2F0D51007E10BA /* HikkiCommonLib+Media.m */,
 			);
 			path = HikkiCommonLib;
 			sourceTree = "<group>";
@@ -419,12 +425,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B236E81E2F0D51007E10BA /* HikkiCommonLib+Media.m in Sources */,
 				B8493C2C1DB8660A0087C1FE /* HikkiWebViewController.m in Sources */,
 				B88273771D0FAAA5007A5AA8 /* HikkiNetLib.m in Sources */,
 				B84BFD841BDF63A90095C8E5 /* HikkiCommonLib.m in Sources */,
 				B8A252241D5C7FC200E1B89D /* IPAddress.c in Sources */,
 				17336C4E1E2CB0DC000F1E36 /* NSString+Base64.m in Sources */,
-				3AD24F921D09C3B6008F7A0C /* NSObject+Test.m in Sources */,
 				B8F486C71D01866200DB50C2 /* HikkiUncaughtExceptionHandler.mm in Sources */,
 				B83B7F1C1D017B22006281FA /* HikkiGameCenterProxy.m in Sources */,
 				17336C4D1E2CB0DC000F1E36 /* NSData+Base64.m in Sources */,
